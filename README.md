@@ -1,6 +1,18 @@
 # Zendure Energy Card
 
-Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version 0.4.0 verwendet eine hohe, smartphone-optimierte Portrait-Darstellung nach dem neuen Zendure-inspirierten Design: Haus, großes Solardach, Wechselrichter, Speicher- und Batteriemodule sowie animierte Energieflüsse.
+Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. **Version 0.4.0** verwendet eine hohe, smartphone-optimierte Portrait-Darstellung nach dem neuen Zendure-inspirierten Design: Haus, großes Solardach, Wechselrichter, Speicher- und Batteriemodule sowie animierte Energieflüsse.
+
+## Vorschau
+
+### Dunkel
+
+![Zendure Energy Card v0.4.0 – Dark](assets/zendure-energy-card-v0.4.0-dark.svg)
+
+### Hell
+
+![Zendure Energy Card v0.4.0 – Light](assets/zendure-energy-card-v0.4.0-light.svg)
+
+Die beiden Vorschauen zeigen die neue v0.4.0-Grafik. Die tatsächliche Lovelace-Karte erzeugt die Szene dynamisch aus den aktuellen Home-Assistant-Zuständen und passt Speicher, Batterien, SoC und Energieflüsse automatisch an.
 
 ## Voraussetzungen
 
@@ -23,9 +35,9 @@ Die Karte liest ausschließlich bestehende `sensor.*`-Entitäten. Es werden kein
 
 Bei HACS-Dashboard-Elementen wird die JavaScript-Datei aus `dist/` installiert und als Lovelace-Ressource eingebunden. Eine `custom_components`-Integration und ein Neustart von Home Assistant sind für diese Karte nicht erforderlich.
 
-### Falls bereits 0.2.0 installiert ist
+### Falls bereits eine ältere Version installiert ist
 
-Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser vollständig neu. Falls unter **Einstellungen → Dashboards → Ressourcen** noch eine alte 0.2.0-Ressource eingetragen ist, diese entfernen.
+Entferne die bisherige **Zendure Energy Card** in HACS, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser vollständig neu. Falls unter **Einstellungen → Dashboards → Ressourcen** noch eine alte Resource eingetragen ist, diese entfernen.
 
 ## Verwendung
 
@@ -79,8 +91,8 @@ Der angezeigte SoC ist der arithmetische Mittelwert aller verfügbaren `*_electr
 ## Darstellung 0.4.0
 
 - **hohe Portrait-Karte**, auf Smartphones ungefähr 3/4 der Bildschirmhöhe
-- deutlich größere Haus-/SolarFlow-Szene gegenüber 0.3.0
-- großes Dach mit acht einzelnen Solarmodulen und Zellraster
+- deutlich größere Haus-/SolarFlow-Szene
+- großes Dach mit Solarmodulen und Zellraster
 - zentraler Wechselrichter
 - Speicher und Zusatzbatterien werden automatisch anhand der Zendure-Sensoren dargestellt
 - eigener SoC pro erkanntem Speichersystem
