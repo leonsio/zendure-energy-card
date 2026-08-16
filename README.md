@@ -1,6 +1,6 @@
 # Zendure Energy Card
 
-Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Die Karte zeichnet die Energieanlage als kompakte Haus-/SolarFlow-Illustration und passt die Anzahl der Speicher- und Batteriemodule automatisch an die von der Zendure Home Assistant Integration gelieferten Sensoren an.
+Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version 0.3.0 verwendet eine neu gestaltete, hochwertige SVG-Energieansicht mit Haus, Solarmodulen, Wechselrichter, Speicher- und Batteriemodulen sowie farblich hervorgehobenen Energieflüssen.
 
 ## Voraussetzungen
 
@@ -17,15 +17,15 @@ Die Karte liest ausschließlich bestehende `sensor.*`-Entitäten. Es werden kein
 1. HACS → **Benutzerdefinierte Repositories** öffnen.
 2. `https://github.com/leonsio/zendure-energy-card` hinzufügen.
 3. Als Typ **Dashboard** auswählen.
-4. **Zendure Energy Card** installieren bzw. neu herunterladen.
-5. Browser vollständig neu laden (z. B. `Ctrl+F5`).
-6. Dashboard bearbeiten → **Karte hinzufügen** → nach **Zendure Energy Card** suchen.
+4. **Zendure Energy Card** installieren bzw. auf Version 0.3.0 aktualisieren.
+5. Browser vollständig neu laden.
+6. Dashboard bearbeiten → **Karte hinzufügen** → **Zendure Energy Card**.
 
-Bei HACS-Dashboard-Elementen wird die JavaScript-Datei aus `dist/` nach `www/community/` installiert und die Dashboard-Ressource von HACS verwaltet. Eine `custom_components`-Integration und ein Neustart von Home Assistant sind für diese Karte nicht erforderlich.
+Bei HACS-Dashboard-Elementen wird die JavaScript-Datei aus `dist/` installiert und als Lovelace-Ressource eingebunden. Eine `custom_components`-Integration und ein Neustart von Home Assistant sind für diese Karte nicht erforderlich.
 
 ### Falls bereits 0.2.0 installiert ist
 
-Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser komplett neu. Prüfe unter **Einstellungen → Dashboards → Ressourcen**, dass die Ressource auf die HACS-Datei zeigt.
+Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser komplett neu. Falls unter **Einstellungen → Dashboards → Ressourcen** noch die alte 0.2.0-Datei eingetragen ist, diese alte Ressource entfernen.
 
 ## Verwendung
 
@@ -76,20 +76,23 @@ Ein negativer `grid_off_power`-Wert wird damit als zusätzliche Solarleistung be
 
 Der angezeigte SoC ist der arithmetische Mittelwert aller verfügbaren `*_electric_level`-Sensoren und wird auf 0–100 % begrenzt.
 
-## Darstellung
+## Darstellung 0.3.0
 
-- Hell- und Dunkelmodus folgen automatisch dem Home-Assistant-Theme.
-- Haus, Dach, Fenster und Solarmodule sind als SVG direkt in der Karte enthalten.
-- Ein System mit einer Batterie wird kompakt dargestellt.
-- Mehrere Systeme werden nebeneinander dargestellt.
-- Jede zusätzliche Batterie wird als eigenes Batteriemodul dargestellt.
-- Die Speicher zeigen ihren jeweiligen SoC visuell.
-- Die zentrale Beschriftung zeigt `X Speicher · Y Batterien`.
-- Die Karte ist responsive und für kleine Displays optimiert.
+- deutlich überarbeitete, modernere Haus-/SolarFlow-Grafik
+- Hell- und Dunkelmodus folgen automatisch dem Home-Assistant-Theme
+- Dach mit mehreren einzelnen Solarmodulen und Zellraster
+- zentraler Wechselrichter mit Energiefluss
+- realistischere Speicher- und Batteriemodule
+- je Speichersystem wird der eigene SoC visualisiert
+- mehrere Speichersysteme werden automatisch nebeneinander angeordnet
+- jede erkannte Zusatzbatterie wird als eigenes Modul dargestellt
+- zentrale Anzeige `X Speicher · Y Batterien`
+- farbcodierte Energieflüsse für Solar, Batterie und Netz
+- responsive Darstellung für Smartphone, Tablet und Desktop
 
 ## Architektur
 
-Die Karte ist bewusst nur ein Lovelace-Frontend-Plugin. Sie verwendet die von Home Assistant bereits bereitgestellten `hass.states` und verändert weder das Zendure-Repository noch die `zendure_ha`-Integration.
+Die Karte ist bewusst nur ein Lovelace-Frontend-Plugin. Sie verwendet die von Home Assistant bereitgestellten `hass.states` und verändert weder das Zendure-Repository noch die `zendure_ha`-Integration.
 
 ## Lizenz
 
