@@ -1,6 +1,6 @@
 # Zendure Energy Card
 
-Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version 0.3.0 verwendet eine neu gestaltete, hochwertige SVG-Energieansicht mit Haus, Solarmodulen, Wechselrichter, Speicher- und Batteriemodulen sowie farblich hervorgehobenen Energieflüssen.
+Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version 0.4.0 verwendet eine hohe, smartphone-optimierte Portrait-Darstellung nach dem neuen Zendure-inspirierten Design: Haus, großes Solardach, Wechselrichter, Speicher- und Batteriemodule sowie animierte Energieflüsse.
 
 ## Voraussetzungen
 
@@ -17,15 +17,15 @@ Die Karte liest ausschließlich bestehende `sensor.*`-Entitäten. Es werden kein
 1. HACS → **Benutzerdefinierte Repositories** öffnen.
 2. `https://github.com/leonsio/zendure-energy-card` hinzufügen.
 3. Als Typ **Dashboard** auswählen.
-4. **Zendure Energy Card** installieren bzw. auf Version 0.3.0 aktualisieren.
-5. Browser vollständig neu laden.
+4. **Zendure Energy Card** installieren bzw. auf Version 0.4.0 aktualisieren.
+5. Browser/WebView vollständig neu laden.
 6. Dashboard bearbeiten → **Karte hinzufügen** → **Zendure Energy Card**.
 
 Bei HACS-Dashboard-Elementen wird die JavaScript-Datei aus `dist/` installiert und als Lovelace-Ressource eingebunden. Eine `custom_components`-Integration und ein Neustart von Home Assistant sind für diese Karte nicht erforderlich.
 
 ### Falls bereits 0.2.0 installiert ist
 
-Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser komplett neu. Falls unter **Einstellungen → Dashboards → Ressourcen** noch die alte 0.2.0-Datei eingetragen ist, diese alte Ressource entfernen.
+Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser vollständig neu. Falls unter **Einstellungen → Dashboards → Ressourcen** noch eine alte 0.2.0-Ressource eingetragen ist, diese entfernen.
 
 ## Verwendung
 
@@ -76,19 +76,20 @@ Ein negativer `grid_off_power`-Wert wird damit als zusätzliche Solarleistung be
 
 Der angezeigte SoC ist der arithmetische Mittelwert aller verfügbaren `*_electric_level`-Sensoren und wird auf 0–100 % begrenzt.
 
-## Darstellung 0.3.0
+## Darstellung 0.4.0
 
-- deutlich überarbeitete, modernere Haus-/SolarFlow-Grafik
-- Hell- und Dunkelmodus folgen automatisch dem Home-Assistant-Theme
-- Dach mit mehreren einzelnen Solarmodulen und Zellraster
-- zentraler Wechselrichter mit Energiefluss
-- realistischere Speicher- und Batteriemodule
-- je Speichersystem wird der eigene SoC visualisiert
-- mehrere Speichersysteme werden automatisch nebeneinander angeordnet
-- jede erkannte Zusatzbatterie wird als eigenes Modul dargestellt
+- **hohe Portrait-Karte**, auf Smartphones ungefähr 3/4 der Bildschirmhöhe
+- deutlich größere Haus-/SolarFlow-Szene gegenüber 0.3.0
+- großes Dach mit acht einzelnen Solarmodulen und Zellraster
+- zentraler Wechselrichter
+- Speicher und Zusatzbatterien werden automatisch anhand der Zendure-Sensoren dargestellt
+- eigener SoC pro erkanntem Speichersystem
 - zentrale Anzeige `X Speicher · Y Batterien`
-- farbcodierte Energieflüsse für Solar, Batterie und Netz
-- responsive Darstellung für Smartphone, Tablet und Desktop
+- animierte Energieflusslinien mit Richtungspfeilen
+- Gelb = Solar, Grün = Batterie, Blau = Verbrauch, Violett = Netz
+- Animation reduziert sich automatisch bei `prefers-reduced-motion`
+- Hell- und Dunkelmodus folgen automatisch dem Home-Assistant-Theme
+- responsive für Smartphone, Tablet und Desktop
 
 ## Architektur
 
