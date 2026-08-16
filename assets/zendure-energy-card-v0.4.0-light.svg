@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f8fbfd"/><stop offset="1" stop-color="#e8f0f5"/></linearGradient>
+ <linearGradient id="roof" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#687784"/><stop offset="1" stop-color="#303c47"/></linearGradient>
+ <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset="1" stop-color="#dfe7ec"/></linearGradient>
+ <linearGradient id="battery" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#89959e"/><stop offset="1" stop-color="#5b6872"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+ <style>
+  .t{font-family:Arial,sans-serif;fill:#17212b}.m{font-size:34px;font-weight:700}.s{font-size:16px;fill:#66727d}.tiny{font-size:13px;fill:#66727d}.cell{stroke:#82909c;stroke-width:1;opacity:.8}.flow{fill:none;stroke-linecap:round;stroke-dasharray:9 14;animation:move 1.25s linear infinite}.solar{stroke:#f2b900;filter:url(#glow)}.bat{stroke:#08b78d;filter:url(#glow)}.load{stroke:#247dd1;filter:url(#glow)}.grid{stroke:#8250d6;filter:url(#glow)}@keyframes move{to{stroke-dashoffset:-46}}
+ </style>
+</defs>
+<rect width="800" height="1200" rx="34" fill="url(#bg)"/>
+<g transform="translate(32 30)"><rect width="228" height="104" rx="22" fill="#fff" stroke="#d4dde3"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#8250d6">0 W</text><text x="114" y="72" text-anchor="middle" class="s">Off-Grid-Last</text></g>
+<g transform="translate(286 30)"><rect width="228" height="104" rx="22" fill="#fff" stroke="#d4dde3"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#d59f00">373 W</text><text x="114" y="72" text-anchor="middle" class="s">Solarleistung</text></g>
+<g transform="translate(540 30)"><rect width="228" height="104" rx="22" fill="#fff" stroke="#d4dde3"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#247dd1">453 W</text><text x="114" y="72" text-anchor="middle" class="s">Systemleistung</text></g>
+<ellipse cx="400" cy="1045" rx="310" ry="50" fill="#7d8a94" opacity=".18" filter="url(#shadow)"/>
+<path d="M72 470 L150 225 L650 225 L728 470 Z" fill="url(#roof)" stroke="#56636e" stroke-width="4"/><path d="M72 470 L728 470 L710 495 L90 495 Z" fill="#46535e"/>
+<path d="M105 485 H695 V1030 H105 Z" fill="url(#wall)" stroke="#c3cdd4" stroke-width="3"/>
+<g transform="translate(195 285) rotate(-1)"><rect x="0" y="0" width="410" height="145" rx="5" fill="#1e2c38" stroke="#687681" stroke-width="3"/><g class="cell"><path d="M51 0V145 M102 0V145 M153 0V145 M204 0V145 M255 0V145 M306 0V145 M357 0V145"/><path d="M0 36H410 M0 72H410 M0 108H410"/></g></g>
+<rect x="135" y="560" width="150" height="175" rx="9" fill="#dff1ff" opacity=".9" stroke="#9caebc" stroke-width="4"/><path d="M210 560V735M135 648H285" stroke="#9caebc" stroke-width="4"/>
+<rect x="485" y="560" width="150" height="175" rx="9" fill="#dff1ff" opacity=".7" stroke="#9caebc" stroke-width="4"/><path d="M560 560V735M485 648H635" stroke="#9caebc" stroke-width="4"/>
+<rect x="330" y="755" width="140" height="275" rx="8" fill="#edf2f5" stroke="#9aa8b2" stroke-width="4"/>
+<rect x="338" y="775" width="124" height="118" rx="14" fill="#7d8992" stroke="#aab5bd" stroke-width="3"/><rect x="358" y="795" width="84" height="58" rx="7" fill="#15202a" stroke="#45a7dc"/><text x="400" y="829" text-anchor="middle" fill="#f5f8fa" font-family="Arial" font-size="24">93%</text><circle cx="400" cy="873" r="6" fill="#08b78d"/>
+<g transform="translate(150 890)"><rect width="180" height="112" rx="16" fill="url(#battery)" stroke="#66737d" stroke-width="3"/><rect x="18" y="18" width="144" height="76" rx="10" fill="#3a4650"/><rect x="35" y="38" width="110" height="10" rx="5" fill="#08b78d"/><rect x="35" y="58" width="82" height="10" rx="5" fill="#08b78d" opacity=".7"/><text x="90" y="118" text-anchor="middle" class="tiny">Batterie 1</text></g>
+<g transform="translate(470 890)"><rect width="180" height="112" rx="16" fill="url(#battery)" stroke="#66737d" stroke-width="3"/><rect x="18" y="18" width="144" height="76" rx="10" fill="#3a4650"/><rect x="35" y="38" width="110" height="10" rx="5" fill="#08b78d"/><rect x="35" y="58" width="82" height="10" rx="5" fill="#08b78d" opacity=".7"/><text x="90" y="118" text-anchor="middle" class="tiny">Batterie 2</text></g>
+<path class="flow solar" d="M400 430 C400 540 400 650 400 775" stroke-width="7"/><path class="flow bat" d="M400 895 C400 855 400 835 400 775" stroke-width="7"/><path class="flow load" d="M462 835 C535 835 575 835 650 835" stroke-width="7"/><path class="flow grid" d="M338 835 C275 835 235 835 150 835" stroke-width="7"/>
+<g transform="translate(55 1080)"><rect width="690" height="78" rx="24" fill="#fff" stroke="#d4dde3"/><text x="110" y="39" text-anchor="middle" class="t m" font-size="27">2 Speicher</text><text x="345" y="39" text-anchor="middle" class="t m" font-size="27">2 Batterien</text><text x="580" y="39" text-anchor="middle" class="t m" font-size="27">93%</text><text x="110" y="61" text-anchor="middle" class="tiny">Systeme</text><text x="345" y="61" text-anchor="middle" class="tiny">Module</text><text x="580" y="61" text-anchor="middle" class="tiny">Ø SoC</text></g>
+</svg>
