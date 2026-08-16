@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 360">
+<rect width="720" height="360" rx="22" fill="#17191d"/>
+<text x="24" y="36" fill="#f4f5f7" font-family="Arial,sans-serif" font-size="25" font-weight="700">1.234 W</text><text x="24" y="57" fill="#9aa2ad" font-family="Arial,sans-serif" font-size="12">Off-Grid-Steckdosenlast</text>
+<text x="360" y="35" text-anchor="middle" fill="#f4f5f7" font-family="Arial,sans-serif" font-size="25" font-weight="700">2.406 W</text><text x="360" y="56" text-anchor="middle" fill="#9aa2ad" font-family="Arial,sans-serif" font-size="12">Solarleistung</text>
+<text x="24" y="333" fill="#03a9f4" font-family="Arial,sans-serif" font-size="25" font-weight="700">87 %</text><text x="24" y="351" fill="#9aa2ad" font-family="Arial,sans-serif" font-size="12">Batterie-SoC · 2 Batterien</text>
+<path d="M88 176 160 100h400l72 76v96H88Z" fill="#2a2e34" stroke="#9aa2ad" stroke-opacity=".3"/><path d="m60 178 100-105h400l100 105-30 20-70-83H160l-70 83Z" fill="#3b434c"/>
+<g fill="#252a31" stroke="#78838e" stroke-width="1"><path d="M240 91h64l-8 30h-64z"/><path d="M309 91h64l-8 30h-64z"/><path d="M378 91h64l-8 30h-64z"/><path d="M256 126h64l-8 30h-64z"/><path d="M325 126h64l-8 30h-64z"/><path d="M394 126h64l-8 30h-64z"/></g>
+<g fill="#f5d99b" opacity=".9"><rect x="115" y="193" width="48" height="44" rx="2"/><rect x="522" y="193" width="42" height="44" rx="2"/></g>
+<path d="M360 120v52" stroke="#ffd44d" stroke-width="4" stroke-linecap="round"/><path d="M360 250v24" stroke="#3de0c0" stroke-width="4" stroke-linecap="round"/><path d="M590 272c-52 26-90 26-140 8" fill="none" stroke="#9275ff" stroke-width="4" stroke-linecap="round"/>
+<g fill="#5f6872" stroke="#9aa2ad"><rect x="300" y="177" width="55" height="66" rx="5"/><rect x="365" y="177" width="55" height="66" rx="5"/></g><g fill="#17191d" stroke="#68737e"><rect x="313" y="188" width="29" height="40" rx="2"/><rect x="378" y="188" width="29" height="40" rx="2"/></g><g fill="#3de0c0"><rect x="319" y="209" width="17" height="14" rx="2"/><rect x="384" y="201" width="17" height="22" rx="2"/></g>
+<g fill="#68727d" stroke="#9aa2ad"><rect x="320" y="260" width="80" height="30" rx="5"/><rect x="415" y="260" width="80" height="30" rx="5"/></g><g fill="#3de0c0"><rect x="331" y="266" width="57" height="5" rx="2"/><rect x="426" y="266" width="57" height="5" rx="2"/><rect x="331" y="276" width="43" height="5" rx="2"/><rect x="426" y="276" width="43" height="5" rx="2"/></g>
+<text x="360" y="315" text-anchor="middle" fill="#f4f5f7" font-family="Arial,sans-serif" font-size="15" font-weight="700">2 Speicher · 2 Batterien</text><text x="360" y="333" text-anchor="middle" fill="#9aa2ad" font-family="Arial,sans-serif" font-size="10">ZENDURE SOLARFLOW</text>
+</svg>
