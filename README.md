@@ -1,6 +1,6 @@
 # Zendure Energy Card
 
-Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version **0.2.0** zeichnet die Energieanlage als kompakte Haus-/SolarFlow-Illustration und passt die Anzahl der Speicher- und Batteriemodule automatisch an die von der Zendure Home Assistant Integration gelieferten Sensoren an.
+Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Die Karte zeichnet die Energieanlage als kompakte Haus-/SolarFlow-Illustration und passt die Anzahl der Speicher- und Batteriemodule automatisch an die von der Zendure Home Assistant Integration gelieferten Sensoren an.
 
 ## Voraussetzungen
 
@@ -10,16 +10,24 @@ Eine HACS-Lovelace-Karte für Zendure SolarFlow/Speichersysteme. Version **0.2.0
 
 Die Karte liest ausschließlich bestehende `sensor.*`-Entitäten. Es werden keine zusätzlichen Zendure-Sensoren erzeugt.
 
-## Installation
+## Installation mit HACS
 
-1. In HACS **Benutzerdefinierte Repositories** öffnen.
-2. `https://github.com/leonsio/zendure-energy-card` als Repository vom Typ **Integration** hinzufügen.
-3. **Zendure Energy Card** installieren.
-4. Home Assistant neu starten.
-5. Die Ressource wird vom Helper automatisch als Lovelace-Modul registriert. Bei einem Update wird die Resource-URL mit der Versionsnummer aktualisiert (`?v=0.2.0`), damit der Browser kein altes JavaScript aus dem Cache verwendet.
-6. Im Dashboard **Zendure Energy Card** auswählen.
+**Wichtig:** Diese Karte ist ein **HACS Dashboard-Element (Plugin)**, keine Home-Assistant-Integration.
 
-Alternativ im YAML-Modus:
+1. HACS → **Benutzerdefinierte Repositories** öffnen.
+2. `https://github.com/leonsio/zendure-energy-card` hinzufügen.
+3. Als Typ **Dashboard** auswählen.
+4. **Zendure Energy Card** installieren bzw. neu herunterladen.
+5. Browser vollständig neu laden (z. B. `Ctrl+F5`).
+6. Dashboard bearbeiten → **Karte hinzufügen** → nach **Zendure Energy Card** suchen.
+
+Bei HACS-Dashboard-Elementen wird die JavaScript-Datei aus `dist/` nach `www/community/` installiert und die Dashboard-Ressource von HACS verwaltet. Eine `custom_components`-Integration und ein Neustart von Home Assistant sind für diese Karte nicht erforderlich.
+
+### Falls bereits 0.2.0 installiert ist
+
+Die frühere 0.2.0-Struktur war fälschlicherweise als Custom Integration aufgebaut. Entferne daher in HACS die bisherige **Zendure Energy Card**, installiere das Repository anschließend erneut als **Dashboard** und lade den Browser komplett neu. Prüfe unter **Einstellungen → Dashboards → Ressourcen**, dass die Ressource auf die HACS-Datei zeigt.
+
+## Verwendung
 
 ```yaml
 type: custom:zendure-energy-card
@@ -43,13 +51,11 @@ Die Karte erkennt die von `zendure_ha` bereitgestellten Sensoren über die Entit
 - `sensor.*_electric_level`
 - `sensor.*_pack_num`
 
-Ein Speichersystem wird über sein `*_electric_level` erkannt. `*_pack_num` bestimmt die Anzahl der zugehörigen Batterien. Wenn `pack_num` noch nicht verfügbar ist, wird vorübergehend eine Batterie für das erkannte System dargestellt.
+Ein Speichersystem wird über sein `*_electric_level` erkannt. `*_pack_num` bestimmt die Anzahl der zugehörigen Batterien. Wenn `pack_num` nicht verfügbar ist, wird vorübergehend eine Batterie für das erkannte System dargestellt.
 
 ## Berechnungen
 
 ### Off-Grid-Steckdosenlast
-
-Für jedes `*_grid_off_power` gilt:
 
 ```text
 Sum(max(grid_off_power, 0))
@@ -64,32 +70,26 @@ Sum(max(solar_input_power, 0))
 + Sum(abs(grid_off_power)) für alle negativen grid_off_power
 ```
 
-Damit wird ein negativer `grid_off_power`-Wert als zusätzliche Solarleistung behandelt, wie von der gewünschten Darstellung vorgegeben.
+Ein negativer `grid_off_power`-Wert wird damit als zusätzliche Solarleistung behandelt.
 
 ### Batterie-SoC
 
-Der angezeigte SoC ist der arithmetische Mittelwert aller verfügbaren `*_electric_level`-Sensoren:
+Der angezeigte SoC ist der arithmetische Mittelwert aller verfügbaren `*_electric_level`-Sensoren und wird auf 0–100 % begrenzt.
 
-```text
-Sum(electric_level) / Anzahl der Systeme
-```
+## Darstellung
 
-Der Wert wird auf 0–100 % begrenzt und auf ganze Prozent gerundet.
-
-## Darstellung 0.2.0
-
-- Hell- und Dunkelmodus werden automatisch aus dem Home-Assistant-Theme abgeleitet.
-- Das Haus, Dach, Fenster und die Solarmodule sind als SVG direkt in der Karte enthalten.
+- Hell- und Dunkelmodus folgen automatisch dem Home-Assistant-Theme.
+- Haus, Dach, Fenster und Solarmodule sind als SVG direkt in der Karte enthalten.
 - Ein System mit einer Batterie wird kompakt dargestellt.
 - Mehrere Systeme werden nebeneinander dargestellt.
 - Jede zusätzliche Batterie wird als eigenes Batteriemodul dargestellt.
-- Die Speicher zeigen den jeweiligen SoC visuell im Geräte-Display.
-- Die zentrale Beschriftung zeigt immer `X Speicher · Y Batterien`.
-- Auf kleinen Displays wird die Darstellung automatisch verkleinert.
+- Die Speicher zeigen ihren jeweiligen SoC visuell.
+- Die zentrale Beschriftung zeigt `X Speicher · Y Batterien`.
+- Die Karte ist responsive und für kleine Displays optimiert.
 
 ## Architektur
 
-Die Integration dient nur dazu, die statische Lovelace-JavaScript-Datei sicher bereitzustellen und automatisch als Resource zu registrieren. Die Karte selbst berechnet ihre Werte im Browser aus `hass.states`. Dadurch werden keine neuen Sensoren angelegt und die bestehende `zendure_ha`-Integration bleibt unverändert.
+Die Karte ist bewusst nur ein Lovelace-Frontend-Plugin. Sie verwendet die von Home Assistant bereits bereitgestellten `hass.states` und verändert weder das Zendure-Repository noch die `zendure_ha`-Integration.
 
 ## Lizenz
 

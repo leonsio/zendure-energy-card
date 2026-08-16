@@ -3,17 +3,24 @@ name: Validate
 on:
   push:
   pull_request:
+  workflow_dispatch:
+
+permissions: {}
 
 jobs:
-  validate:
+  validate-hacs:
     runs-on: ubuntu-latest
     steps:
+      - name: HACS validation
+        uses: hacs/action@main
+        with:
+          category: plugin
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
       - name: Validate JavaScript syntax
-        run: node --check custom_components/zendure_energy_card/static/zendure-energy-card.js
+        run: node --check dist/zendure-energy-card.js
       - name: Validate JSON
         run: |
           python - <<'PY'
