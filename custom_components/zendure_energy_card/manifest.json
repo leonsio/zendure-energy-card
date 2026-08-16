@@ -1,0 +1,14 @@
+{
+  "domain": "zendure_energy_card",
+  "name": "Zendure Energy Card",
+  "version": "0.2.0",
+  "documentation": "https://github.com/leonsio/zendure-energy-card",
+  "issue_tracker": "https://github.com/leonsio/zendure-energy-card/issues",
+  "codeowners": ["@leonsio"],
+  "config_flow": false,
+  "dependencies": ["frontend", "lovelace"],
+  "after_dependencies": ["zendure_ha"],
+  "integration_type": "service",
+  "iot_class": "calculated",
+  "requirements": []
+}
