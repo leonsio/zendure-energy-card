@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200">
+<defs>
+ <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#0b1118"/><stop offset="1" stop-color="#141d27"/></linearGradient>
+ <linearGradient id="roof" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#263443"/><stop offset="1" stop-color="#101820"/></linearGradient>
+ <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#1e2a35"/><stop offset="1" stop-color="#0e151d"/></linearGradient>
+ <linearGradient id="battery" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#66727d"/><stop offset="1" stop-color="#303a44"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <filter id="shadow"><feGaussianBlur stdDeviation="12"/></filter>
+ <style>
+  .t{font-family:Arial,sans-serif;fill:#f4f7fa}.m{font-size:34px;font-weight:700}.s{font-size:16px;fill:#9faab5}.tiny{font-size:13px;fill:#9faab5}.panel{fill:#182633;stroke:#72808d;stroke-width:2}.cell{stroke:#536473;stroke-width:1;opacity:.7}.flow{fill:none;stroke-linecap:round;stroke-dasharray:9 14;animation:move 1.25s linear infinite}.solar{stroke:#ffd83d;filter:url(#glow)}.bat{stroke:#15e6b0;filter:url(#glow)}.load{stroke:#4aa3ff;filter:url(#glow)}.grid{stroke:#aa78ff;filter:url(#glow)}@keyframes move{to{stroke-dashoffset:-46}}
+ </style>
+</defs>
+<rect width="800" height="1200" rx="34" fill="url(#bg)"/>
+<!-- metrics -->
+<g transform="translate(32 30)"><rect width="228" height="104" rx="22" fill="#16212c" stroke="#33414e"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#aa78ff">0 W</text><text x="114" y="72" text-anchor="middle" class="s">Off-Grid-Last</text></g>
+<g transform="translate(286 30)"><rect width="228" height="104" rx="22" fill="#16212c" stroke="#33414e"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#ffd83d">373 W</text><text x="114" y="72" text-anchor="middle" class="s">Solarleistung</text></g>
+<g transform="translate(540 30)"><rect width="228" height="104" rx="22" fill="#16212c" stroke="#33414e"/><text x="114" y="43" text-anchor="middle" class="t m" fill="#4aa3ff">453 W</text><text x="114" y="72" text-anchor="middle" class="s">Systemleistung</text></g>
+<!-- ground shadow --> <ellipse cx="400" cy="1045" rx="310" ry="50" fill="#000" opacity=".35" filter="url(#shadow)"/>
+<!-- house -->
+<path d="M72 470 L150 225 L650 225 L728 470 Z" fill="url(#roof)" stroke="#5a6875" stroke-width="4"/>
+<path d="M72 470 L728 470 L710 495 L90 495 Z" fill="#34404b"/>
+<path d="M105 485 H695 V1030 H105 Z" fill="url(#wall)" stroke="#3b4854" stroke-width="3"/>
+<!-- solar panels -->
+<g transform="translate(195 285) rotate(-1)">
+ <rect x="0" y="0" width="410" height="145" rx="5" fill="#0d151d" stroke="#73818d" stroke-width="3"/>
+ <g class="cell">
+  <path d="M51 0V145 M102 0V145 M153 0V145 M204 0V145 M255 0V145 M306 0V145 M357 0V145"/>
+  <path d="M0 36H410 M0 72H410 M0 108H410"/>
+ </g>
+ <path d="M0 0L410 0L390 145L0 145Z" fill="#253847" opacity=".35"/>
+</g>
+<!-- windows and door -->
+<rect x="135" y="560" width="150" height="175" rx="9" fill="#c7d9e8" opacity=".8" stroke="#778999" stroke-width="4"/>
+<path d="M210 560V735M135 648H285" stroke="#718392" stroke-width="4"/>
+<rect x="485" y="560" width="150" height="175" rx="9" fill="#9cc9e8" opacity=".38" stroke="#667887" stroke-width="4"/>
+<path d="M560 560V735M485 648H635" stroke="#667887" stroke-width="4"/>
+<rect x="330" y="755" width="140" height="275" rx="8" fill="#111a22" stroke="#3d4b58" stroke-width="4"/>
+<!-- inverter -->
+<rect x="338" y="775" width="124" height="118" rx="14" fill="#687580" stroke="#bdc6cd" stroke-width="3"/>
+<rect x="358" y="795" width="84" height="58" rx="7" fill="#081119" stroke="#63d8ff"/>
+<text x="400" y="829" text-anchor="middle" class="t" font-size="24">93%</text><circle cx="400" cy="873" r="6" fill="#15e6b0"/>
+<!-- batteries -->
+<g transform="translate(150 890)"><rect width="180" height="112" rx="16" fill="url(#battery)" stroke="#aeb8c0" stroke-width="3"/><rect x="18" y="18" width="144" height="76" rx="10" fill="#202b35"/><rect x="35" y="38" width="110" height="10" rx="5" fill="#15e6b0"/><rect x="35" y="58" width="82" height="10" rx="5" fill="#15e6b0" opacity=".7"/><text x="90" y="118" text-anchor="middle" class="tiny">Batterie 1</text></g>
+<g transform="translate(470 890)"><rect width="180" height="112" rx="16" fill="url(#battery)" stroke="#aeb8c0" stroke-width="3"/><rect x="18" y="18" width="144" height="76" rx="10" fill="#202b35"/><rect x="35" y="38" width="110" height="10" rx="5" fill="#15e6b0"/><rect x="35" y="58" width="82" height="10" rx="5" fill="#15e6b0" opacity=".7"/><text x="90" y="118" text-anchor="middle" class="tiny">Batterie 2</text></g>
+<!-- animated energy paths -->
+<path class="flow solar" d="M400 430 C400 540 400 650 400 775" stroke-width="7"/>
+<path class="flow bat" d="M400 895 C400 855 400 835 400 775" stroke-width="7"/>
+<path class="flow load" d="M462 835 C535 835 575 835 650 835" stroke-width="7"/>
+<path class="flow grid" d="M338 835 C275 835 235 835 150 835" stroke-width="7"/>
+<g fill="#ffd83d"><circle cx="400" cy="450" r="8"/><circle cx="400" cy="520" r="8"/></g>
+<!-- footer -->
+<g transform="translate(55 1080)"><rect width="690" height="78" rx="24" fill="#17222d" stroke="#33414e"/><text x="110" y="39" text-anchor="middle" class="t m" font-size="27">2 Speicher</text><text x="345" y="39" text-anchor="middle" class="t m" font-size="27">2 Batterien</text><text x="580" y="39" text-anchor="middle" class="t m" font-size="27">93%</text><text x="110" y="61" text-anchor="middle" class="tiny">Systeme</text><text x="345" y="61" text-anchor="middle" class="tiny">Module</text><text x="580" y="61" text-anchor="middle" class="tiny">Ø SoC</text></g>
+</svg>
